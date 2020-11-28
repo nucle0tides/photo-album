@@ -25,11 +25,8 @@ const Polaroid = ({ source, caption, alt }) => {
     const source = e.target;
     EXIF.getData(source, function() {
       const imgTimetamp = EXIF.getTag(this, 'DateTime');
-      //2020:01:01 11:43:35
       var [year, month, day] = imgTimetamp.split(/\D/);
-      const imgDate = new Date(year,month,day)
-        .toLocaleString([], {year: 'numeric', month: 'numeric', day: 'numeric'});
-      setDate(imgDate);
+      setDate(`${month}/${day}/${year}`);
     });
   }
 
@@ -46,9 +43,7 @@ const Polaroid = ({ source, caption, alt }) => {
           ref={imgRef}
         />
       </div>
-      <div className={styles.captionContainer}>
-        <span>{date}</span>
-      </div>
+      <div className={styles.dateContainer}>{date}</div>
     </div>
     </animated.div>
   );
@@ -59,7 +54,6 @@ const Polaroid = ({ source, caption, alt }) => {
       style={{ opacity, transform: transform.interpolate(t => `${t} rotateY(-180deg)`) }}
     >
       <div className={styles.body}>
-        <span>{caption}</span>
       </div>
     </animated.div>
   );
