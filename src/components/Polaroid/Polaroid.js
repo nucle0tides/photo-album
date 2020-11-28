@@ -35,16 +35,16 @@ const Polaroid = ({ source, caption, alt }) => {
       className={styles.polaroidContainer}
       style={{ opacity: opacity.interpolate(o => 1 - o), transform }}
     >
-    <div className={styles.body}>
-      <div className={styles.imgContainer}>
-        <img
-          src={source}
-          alt={alt}
-          ref={imgRef}
-        />
+      <div className={styles.frontBody}>
+        <div className={styles.imgContainer}>
+          <img
+            src={source}
+            alt={alt}
+            ref={imgRef}
+          />
+        </div>
+        <div className={styles.dateContainer}>{date}</div>
       </div>
-      <div className={styles.dateContainer}>{date}</div>
-    </div>
     </animated.div>
   );
 
@@ -53,7 +53,10 @@ const Polaroid = ({ source, caption, alt }) => {
       className={styles.polaroidContainer}
       style={{ opacity, transform: transform.interpolate(t => `${t} rotateY(-180deg)`) }}
     >
-      <div className={styles.body}>
+      <div className={styles.backBody}>
+        <span>
+          {caption}
+        </span>
       </div>
     </animated.div>
   );
