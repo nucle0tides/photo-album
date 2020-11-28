@@ -17,10 +17,12 @@ const Polaroid = ({ source, caption, alt }) => {
       style={{ opacity: opacity.interpolate(o => 1 - o), transform }}
     >
     <div className={styles.body}>
-      <img
-        src={source}
-        alt={alt}
-      />
+      <div className={styles.imgContainer}>
+        <img
+          src={source}
+          alt={alt}
+        />
+      </div>
       <span>{caption}</span>
     </div>
     </animated.div>
