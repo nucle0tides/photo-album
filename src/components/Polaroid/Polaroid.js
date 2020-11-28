@@ -17,14 +17,19 @@ const Polaroid = ({ source, caption, alt }) => {
   React.useEffect(() => {
     if (imgRef && imgRef.current) {
       imgRef.current.addEventListener('load', imageLoad);
-      return () => imgRef.current.removeEventListener('load', imageLoad);
+      return () => imgRef.current.removeEventListener('load');
     }
   }, [imgRef]);
 
   const imageLoad = (e) => {
     const source = e.target;
     EXIF.getData(source, function() {
-      console.log(EXIF.getTag(this, "DateTimeOriginal"));
+      const imgTimetamp = EXIF.getTag(this, 'DateTime');
+      //2020:01:01 11:43:35
+      var [year, month, day] = imgTimetamp.split(/\D/);
+      const imgDate = new Date(year,month,day)
+        .toLocaleString([], {year: 'numeric', month: 'numeric', day: 'numeric'});
+      setDate(imgDate);
     });
   }
 
@@ -41,7 +46,9 @@ const Polaroid = ({ source, caption, alt }) => {
           ref={imgRef}
         />
       </div>
-      <span>{caption}</span>
+      <div className={styles.captionContainer}>
+        <span>{date}</span>
+      </div>
     </div>
     </animated.div>
   );

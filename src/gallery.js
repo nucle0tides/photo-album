@@ -1,7 +1,7 @@
 import fuckRules from './img/fuck-rules.jpg';
-import canITakeUrOrder from './img/can-i-take-ur-order.jpg';
 import justVibin from './img/just-vibin.jpg';
-import myBurrito from './img/my-burrito.jpg';
+import letMeGoHome from './img/let-me-go-home.jpg';
+import cozyCave from './img/cozy-cave.jpg';
 
 export default [
   {
@@ -10,9 +10,9 @@ export default [
     caption: 'no gods no masters.',
   },
   {
-    source: canITakeUrOrder,
-    alt: 'dog standing in a cut out in the wall ready to take your order',
-    caption: 'hi welcome to chick-fil-a how may i serve u?'
+    source: letMeGoHome,
+    alt: 'selfie of a girl in a yellow beanie and black mask next to a concerned-looking dog',
+    caption: 'i don\'t know why she took me to the dog bar i don\'t even like beer.',
   },
   {
     source: justVibin,
@@ -20,8 +20,8 @@ export default [
     caption: 'this is my garden.',
   },
   {
-    source: myBurrito,
-    alt: 'dog sitting on a dog bed with a toy burrito under him',
-    caption: 'this is my burrito. there are many like it but this one is mine',
+    source: cozyCave,
+    alt: 'dog sitting in the entryway of a tent',
+    caption: 'you must say five positive affirmations before entering the cozy cave.',
   },
 ];
