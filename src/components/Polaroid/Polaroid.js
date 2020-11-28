@@ -13,7 +13,7 @@ const Polaroid = ({ source, caption, alt }) => {
 
   const front = (
     <animated.div
-      className={styles.container}
+      className={styles.polaroidContainer}
       style={{ opacity: opacity.interpolate(o => 1 - o), transform }}
     >
     <div className={styles.body}>
@@ -28,7 +28,7 @@ const Polaroid = ({ source, caption, alt }) => {
 
   const back = (
     <animated.div
-      className={styles.container}
+      className={styles.polaroidContainer}
       style={{ opacity, transform: transform.interpolate(t => `${t} rotateY(-180deg)`) }}
     >
       <div className={styles.body}>

@@ -16,6 +16,10 @@ module.exports = {
         options: { presets: ['@babel/env'] },
       },
       {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
         // https://webpack.js.org/loaders/sass-loader/
         test: /\.s[ac]ss$/,
         use: [
