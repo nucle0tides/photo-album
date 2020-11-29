@@ -11,7 +11,7 @@ const App = () => {
   return (
     <Container fluid>
       {[...Array(numRows)].map((_, rowIdx) => (
-        <Row key={`row-${rowIdx}`}>
+        <Row sm={2} lg={4} key={`row-${rowIdx}`}>
           {gallery.map(({source, alt, caption}, colIdx) => (
             <Col key={`col-${colIdx}`}>
               <Polaroid key={source} caption={caption} source={source} alt={alt} />
