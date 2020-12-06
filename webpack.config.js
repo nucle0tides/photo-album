@@ -1,5 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+var ImageminPlugin = require('imagemin-webpack-plugin').default;
+const imageminMozjpeg = require('imagemin-mozjpeg');
 const webpack = require('webpack');
 
 const { NODE_ENV } = process.env;
@@ -70,5 +72,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'public/index.html'),
     }),
+    new ImageminPlugin({
+      plugins: [imageminMozjpeg({quality: 50})],
+     }),
   ].filter(Boolean),
 };
