@@ -7,12 +7,16 @@ import gallery from './gallery';
 import './theme/theme.scss';
 
 const App = () => {
-  const numRows = gallery.length / 4;
+  const numCols = 4;
+  const numRows = Math.ceil(gallery.length / numCols);
+  // change to non-destructive method lmao
+  const groups = [...Array(numRows)].map(() => gallery.splice(0, numCols));
+
   return (
     <Container fluid>
-      {[...Array(numRows)].map((_, rowIdx) => (
-        <Row sm={2} lg={4} key={`row-${rowIdx}`}>
-          {gallery.map(({source, alt, caption, data}, colIdx) => (
+      {groups.map((group, groupIdx) => (
+        <Row sm={2} lg={4} key={`row-${groupIdx}`}>
+          {group.map(({source, alt, caption, data}, colIdx) => (
             <Col key={`col-${colIdx}`}>
               <Polaroid key={source} caption={caption} source={source} alt={alt} data={data} />
             </Col>

@@ -53,6 +53,7 @@ module.exports = {
           },
         ],
       },
+      // https://github.com/herschel666/exif-loader
       {
         test: /\.jpe?g$/,
         oneOf: [
@@ -86,7 +87,7 @@ module.exports = {
       template: path.join(__dirname, 'public/index.html'),
     }),
     new ImageminPlugin({
-      plugins: [imageminMozjpeg({ quality: 50 })],
+      plugins: [imageminMozjpeg({ quality: 25 })],
      }),
   ].filter(Boolean),
 };
