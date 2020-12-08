@@ -2537,7 +2537,7 @@ dashdash@^1.12.0:
   dependencies:
     assert-plus "^1.0.0"
 
-debug@2.6.9, debug@^2.2.0, debug@^2.3.3:
+debug@2.6.9, debug@^2.2, debug@^2.2.0, debug@^2.3.3:
   version "2.6.9"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
   integrity sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==
@@ -3171,10 +3171,20 @@ executable@^4.1.0:
   dependencies:
     pify "^2.2.0"
 
-exif-js@^2.3.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/exif-js/-/exif-js-2.3.0.tgz#9d10819bf571f873813e7640241255ab9ce1a814"
-  integrity sha1-nRCBm/Vx+HOBPnZAJBJVq5zhqBQ=
+exif-loader@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/exif-loader/-/exif-loader-0.2.1.tgz#969c756486be18a6802f9388a75011bc9e0210ed"
+  integrity sha512-1BzT9vvKRSVkWzNaxm4dnw060bm2Bk8McXTDO64wTF1BTMLLa4poI8a1R/v20bLDoqPbo5S+X9W2o7myuOHApg==
+  dependencies:
+    exif "^0.6.0"
+    node-iptc "^1.0.5"
+
+exif@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/exif/-/exif-0.6.0.tgz#60a62668076542cb7e4f57199d4ac6f37d2c5f4a"
+  integrity sha1-YKYmaAdlQst+T1cZnUrG830sX0o=
+  dependencies:
+    debug "^2.2"
 
 expand-brackets@^2.1.4:
   version "2.1.4"
@@ -5359,6 +5369,11 @@ node-gyp@^3.8.0:
     semver "~5.3.0"
     tar "^2.0.0"
     which "1"
+
+node-iptc@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/node-iptc/-/node-iptc-1.0.5.tgz#637ec5c296889b34104a8de75d6b94ee3c85c2c9"
+  integrity sha1-Y37FwpaImzQQSo3nXWuU7jyFwsk=
 
 node-libs-browser@^2.2.1:
   version "2.2.1"

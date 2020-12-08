@@ -46,10 +46,23 @@ module.exports = {
       },
       {
         // https://webpack.js.org/loaders/file-loader/
-        test: /\.(png|jpe?g|gif)$/i,
+        test: /\.(png|gif)$/i,
         use: [
           {
             loader: 'file-loader',
+          },
+        ],
+      },
+      {
+        test: /\.jpe?g$/,
+        oneOf: [
+          {
+            resourceQuery: /^\?exif$/,
+            use: 'exif-loader',
+          },
+          {
+            resourceQuery: /^\?file$/,
+            use: ['file-loader'],
           },
         ],
       },
@@ -73,7 +86,7 @@ module.exports = {
       template: path.join(__dirname, 'public/index.html'),
     }),
     new ImageminPlugin({
-      plugins: [imageminMozjpeg({quality: 50})],
+      plugins: [imageminMozjpeg({ quality: 50 })],
      }),
   ].filter(Boolean),
 };

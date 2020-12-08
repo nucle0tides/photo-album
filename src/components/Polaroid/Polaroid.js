@@ -1,34 +1,22 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSpring, animated } from 'react-spring';
-import EXIF from 'exif-js';
 import styles from './styles.scss';
 
 // codepen flip taken from: https://codesandbox.io/embed/01yl7knw70
-const Polaroid = ({ source, caption, alt }) => {
+const Polaroid = ({ source, caption, alt, data }) => {
   const [date, setDate] = useState(undefined);
   const [flipped, setFlipped] = useState(false);
-  const imgRef = useRef();
   const { transform, opacity } = useSpring({
     opacity: flipped ? 1 : 0,
     transform: `perspective(600px) rotateY(${flipped ? -180 : 0}deg)`,
     config: { mass: 5, tension: 250, friction: 50 }
   });
 
-  React.useEffect(() => {
-    if (imgRef && imgRef.current) {
-      imgRef.current.addEventListener('load', imageLoad);
-      return () => imgRef.current.removeEventListener('load');
-    }
-  }, [imgRef]);
-
-  const imageLoad = (e) => {
-    const source = e.target;
-    EXIF.getData(source, function() {
-      const imgTimetamp = EXIF.getTag(this, 'DateTime');
-      var [year, month, day] = imgTimetamp.split(/\D/);
-      setDate(`${month}/${day}/${year}`);
-    });
-  }
+  useEffect(() => {
+    const { ModifyDate: captureDate } = data;
+    let [year, month, day] = captureDate.split(/\D/);
+    setDate(`${month}/${day}/${year}`);
+  }, [data]);
 
   const front = (
     <animated.div
@@ -40,7 +28,6 @@ const Polaroid = ({ source, caption, alt }) => {
           <img
             src={source}
             alt={alt}
-            ref={imgRef}
           />
         </div>
         <div className={styles.dateContainer}>{date}</div>
