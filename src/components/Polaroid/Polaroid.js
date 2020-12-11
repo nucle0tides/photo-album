@@ -14,8 +14,10 @@ const Polaroid = ({ source, caption, alt, data }) => {
 
   useEffect(() => {
     const { ModifyDate: captureDate } = data;
-    let [year, month, day] = captureDate.split(/\D/);
-    setDate(`${month}/${day}/${year}`);
+    if (captureDate) {
+      let [year, month, day] = captureDate.split(/\D/);
+      setDate(`${month}/${day}/${year}`);
+    }
   }, [data]);
 
   const front = (
@@ -26,7 +28,8 @@ const Polaroid = ({ source, caption, alt, data }) => {
       <div className={styles.frontBody}>
         <div className={styles.imgContainer}>
           <img
-            src={source}
+            data-loading
+            data-src={source}
             alt={alt}
           />
         </div>

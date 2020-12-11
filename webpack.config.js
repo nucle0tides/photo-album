@@ -7,7 +7,10 @@ const webpack = require('webpack');
 const { NODE_ENV } = process.env;
 
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    main: './src/index.js',
+    observer: './src/utils/observe.js',
+  },
   mode: NODE_ENV,
   module: {
     rules: [
