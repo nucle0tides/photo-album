@@ -91,7 +91,9 @@ module.exports = {
       favicon: path.join(__dirname, 'public/favicon.ico'),
     }),
     new ImageminPlugin({
-      plugins: [imageminMozjpeg({ quality: 25 })],
+      plugins: [
+        imageminMozjpeg({ quality: 10 }),
+      ],
      }),
   ].filter(Boolean),
 };

@@ -29,6 +29,8 @@ const Polaroid = ({ source, caption, alt, data }) => {
         <div className={styles.imgContainer}>
           <img
             data-loading
+            width="300px"
+            height="300px"
             data-src={source}
             alt={alt}
           />
