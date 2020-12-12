@@ -43,7 +43,7 @@ export default [
   {
     source: kindness,
     alt: 'kindness rocks',
-    caption: 'a walk around midtown on christmas eve led us to a school with a bunch of painted signs and this sign. kindness rocks! :)',
+    caption: 'a walk around midtown on christmas eve led us to a school with a bunch of painted rocks and this sign. kindness rocks! :)',
     data: kindnessExif.image,
   },
   {

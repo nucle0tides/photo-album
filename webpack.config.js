@@ -88,6 +88,7 @@ module.exports = {
     NODE_ENV === 'development' && new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'public/index.html'),
+      favicon: path.join(__dirname, 'public/favicon.ico'),
     }),
     new ImageminPlugin({
       plugins: [imageminMozjpeg({ quality: 25 })],
